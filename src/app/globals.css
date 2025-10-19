@@ -1,26 +1,84 @@
-@import "tailwindcss";
+/* Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* Variables y tema */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #1e1e1e;   /* Fondo plomizo oscuro */
+  --color-foreground: #d7c89c;   /* Texto dorado suave */
+  --color-accent: #f5d372;       /* Color de hover / botones */
+  --color-card: #2a2a2a;         /* Fondo de tarjetas o secciones */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-background: #1e1e1e;
+    --color-foreground: #d7c89c;
+    --color-accent: #f5d372;
+    --color-card: #2a2a2a;
   }
 }
 
+/* Estilos base para todo el sitio */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: 'Arial', Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+/* Enlaces */
+a {
+  color: var(--color-foreground);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: var(--color-accent);
+}
+
+/* Botones */
+button {
+  background-color: var(--color-accent);
+  color: var(--color-background);
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1.5rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #e6c15c;
+  transform: translateY(-2px);
+}
+
+/* Tarjetas / Secciones */
+.card {
+  background-color: var(--color-card);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+/* Títulos */
+h1, h2, h3 {
+  color: white;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  background-color: var(--color-card);
+  color: var(--color-foreground);
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
 }
